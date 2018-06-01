@@ -11,6 +11,6 @@ public class App {
         FileSystemXmlApplicationContext applicationContext = new FileSystemXmlApplicationContext("//${PWD}/src/main/java/cn/fay/spring/tx/tx.xml");
         ServiceImpl service = (ServiceImpl) applicationContext.getBean("service");
         System.err.println(service.getClass());
-        service.someOpt();
+        service.pubOpt();
     }
 }

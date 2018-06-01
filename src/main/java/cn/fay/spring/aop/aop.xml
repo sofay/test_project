@@ -11,11 +11,15 @@
     <bean id="target" class="cn.fay.spring.aop.TargetObject"/>
     <bean id="objTest" class="java.lang.Object"/>
 
-    <aop:config>
+    <aop:config proxy-target-class="true">
         <aop:pointcut id="pointcut1" expression="execution(* cn.fay.spring.aop.TargetObject.run(..))"/>
         <aop:aspect id="test" ref="advisor">
             <aop:before method="before" pointcut-ref="pointcut1"/>
             <aop:after-returning method="after" returning="result" pointcut-ref="pointcut1"/>
         </aop:aspect>
     </aop:config>
+
+    <aop:aspectj-autoproxy proxy-target-class="true">
+        <aop:include name="i1"/>
+    </aop:aspectj-autoproxy>
 </beans>

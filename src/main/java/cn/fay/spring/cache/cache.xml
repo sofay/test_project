@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/cache
+        http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <bean id="opt" class="cn.fay.spring.cache.OptServiceImpl"/>
+
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+                    <property name="name" value="default"/>
+                </bean>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+                    <property name="name" value="accountCache"/>
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="keyGenerator" class="org.springframework.cache.interceptor.SimpleKeyGenerator"/>
+
+    <cache:advice id="cacheAdvisor">
+        <cache:caching cache="default">
+            <cache:cacheable method="get*" key="#p0"/>
+            <!--<cache:cache-put method="get*" key="#root.methodName + #p0"/>-->
+            <cache:cache-evict method="update" key="#p0"/>
+        </cache:caching>
+    </cache:advice>
+
+    <aop:config>
+        <aop:pointcut id="mpc" expression="execution(* cn.fay.spring.cache.OptServiceImpl.* (..))"/>
+        <aop:advisor advice-ref="cacheAdvisor" pointcut-ref="mpc"/>
+    </aop:config>
+</beans>

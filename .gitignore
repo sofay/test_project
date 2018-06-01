@@ -16,6 +16,7 @@ diamond_config_data.log
 .idea/
 *.iml
 target/*
+out/*
 jrebel.xml
 logs2/*
 logs/*
