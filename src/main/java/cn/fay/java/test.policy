@@ -1,0 +1,3 @@
+grant codeBase "file:/Users/fay/IdeaProjects/test/out/production/test/-"{
+    permission java.io.FilePermission "/Users/fay/monitor.sh", "read";
+};

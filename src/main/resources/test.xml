@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.fay.mybatis.dao.TestMapper">
+    <cache/>
+    <select id="get" parameterType="java.util.Map" resultType="java.util.Map">
+        select id,name,value,msg from test where id = #{id,typeHandler=cn.fay.mybatis.MyStringTypeHandler}
+    </select>
+</mapper>

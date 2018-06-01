@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 也可以采用注解, 为了减少代码侵入性，改为配置-->
+    <typeAliases>
+    </typeAliases>
+
+    <typeHandlers>
+        <typeHandler handler="cn.fay.mybatis.MyStringTypeHandler" javaType="String" jdbcType="VARCHAR"/>
+    </typeHandlers>
+
+    <plugins>
+        <plugin interceptor="cn.fay.mybatis.MybatisInterceptor"/>
+    </plugins>
+
+    <mappers>
+        <!--<mapper resource="test.xml"/>-->
+        <package name="cn.fay.mybatis"/>
+    </mappers>
+
+</configuration>

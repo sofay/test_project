@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        ">
+    <!--<dubbo:registry address="zoo4.superboss.cc:30002,zoo5.superboss.cc:30002,zoo6.superboss.cc:30002" protocol="zookeeper"/>-->
+    <!--<dubbo:application name="QN-COMMON"/>-->
+    <!--<dubbo:reference id="grayService" interface="com.raycloud.erp.performance.gray.GrayService"/>-->
+    <dubbo:application name="jx-gray"/>
+    <dubbo:registry address="jixiao.test.superboss.cc:2181" protocol="zookeeper" group="fay"/>
+    <dubbo:reference id="grayService" interface="cn.fay.dubbo.GrayService" check="false" mock="return `hello mock`">
+        <dubbo:method name="hello" mock="return `return mock by hello method`"/>
+    </dubbo:reference>
+
+</beans>

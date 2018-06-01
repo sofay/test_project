@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd" profile="fay">
+
+    <bean id="advisor" class="cn.fay.spring.aop.TargetAdvisor"/>
+    <bean id="target" class="cn.fay.spring.aop.TargetObject"/>
+    <bean id="objTest" class="java.lang.Object"/>
+
+    <aop:config>
+        <aop:pointcut id="pointcut1" expression="execution(* cn.fay.spring.aop.TargetObject.run(..))"/>
+        <aop:aspect id="test" ref="advisor">
+            <aop:before method="before" pointcut-ref="pointcut1"/>
+            <aop:after-returning method="after" returning="result" pointcut-ref="pointcut1"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
