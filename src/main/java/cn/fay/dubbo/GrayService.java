@@ -8,4 +8,6 @@ import java.util.List;
  */
 public interface GrayService {
     String hello(List<Long> shopIds);
+
+    Short test();
 }

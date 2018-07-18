@@ -13,4 +13,9 @@ public class GrayServiceImpl implements GrayService {
     public String hello(List<Long> shopIds) {
         return "world " + shopIds;
     }
+
+    @Override
+    public Short test() {
+        return Short.valueOf((short) 5);
+    }
 }

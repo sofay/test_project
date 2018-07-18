@@ -1,6 +1,5 @@
 package cn.fay.spring.mvc;
 
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
