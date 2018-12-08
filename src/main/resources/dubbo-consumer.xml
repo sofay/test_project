@@ -6,11 +6,11 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         ">
-    <!--<dubbo:registry address="zoo4.superboss.cc:30002,zoo5.superboss.cc:30002,zoo6.superboss.cc:30002" protocol="zookeeper"/>-->
-    <!--<dubbo:application name="QN-COMMON"/>-->
-    <!--<dubbo:reference id="grayService" interface="com.raycloud.erp.performance.gray.GrayService"/>-->
-    <dubbo:application name="jx-gray"/>
-    <dubbo:registry address="jixiao.test.superboss.cc:2181" protocol="zookeeper" group="fay"/>
+    <!--<dubbo:registry address="" protocol="zookeeper"/>-->
+    <!--<dubbo:application name=""/>-->
+    <!--<dubbo:reference id="grayService" interface=""/>-->
+    <dubbo:application name=""/>
+    <dubbo:registry address="" protocol="zookeeper" group="fay"/>
     <dubbo:reference id="grayService" interface="cn.fay.dubbo.GrayService" check="false" mock="return `hello mock`">
         <dubbo:method name="hello" mock="return `return mock by hello method`"/>
     </dubbo:reference>
