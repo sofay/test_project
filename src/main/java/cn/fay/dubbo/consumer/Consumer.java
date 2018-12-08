@@ -1,7 +1,6 @@
 package cn.fay.dubbo.consumer;
 
 import cn.fay.dubbo.GrayService;
-//import com.raycloud.erp.performance.gray.GrayService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
