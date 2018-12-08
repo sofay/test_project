@@ -6,8 +6,8 @@
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         ">
-    <dubbo:registry address="jixiao.test.superboss.cc:2181" protocol="zookeeper" group="fay"/>
-    <dubbo:application name="jx-gray"/>
+    <dubbo:registry address="" protocol="zookeeper" group="fay"/>
+    <dubbo:application name=""/>
     <dubbo:protocol name="dubbo" port="21080"/>
     <dubbo:service interface="cn.fay.dubbo.GrayService" ref="gray" register="true"/>
     <bean id="gray" class="cn.fay.dubbo.provider.GrayServiceImpl"/>
